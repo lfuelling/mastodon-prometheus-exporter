@@ -1,0 +1,16 @@
+[Unit]
+Description=Mastodon Prometheus Exporter
+After=syslog.target network.target
+Conflicts=mastodon-exporter.service
+
+[Service]
+Type=forking
+User=root
+Group=root
+PIDFile=/usr/share/mastodon-exporter/current.pid
+ExecStart=/usr/share/mastodon-exporter/start.sh
+ExecStop=/usr/share/mastodon-exporter/stop.sh
+WorkingDirectory=/etc/mastodon-exporter
+
+[Install]
+WantedBy=default.target

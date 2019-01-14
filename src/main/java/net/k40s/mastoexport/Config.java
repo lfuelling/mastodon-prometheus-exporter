@@ -21,7 +21,7 @@ class Config {
 
     private Config() {
         boolean loadSuccess = false;
-        try (FileReader reader = new FileReader("exporter.properties")) {
+        try (FileReader reader = new FileReader("deb/exporter.properties")) {
             Properties p = new Properties();
             p.load(reader);
             loadSuccess = true;

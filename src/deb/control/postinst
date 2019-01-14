@@ -1,0 +1,7 @@
+#!/bin/sh -e
+
+# Enable service
+systemctl enable mastodon-exporter.service
+
+# Stop service if started
+systemctl stop mastodon-exporter.service
