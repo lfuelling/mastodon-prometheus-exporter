@@ -15,6 +15,11 @@ target=https://localhost:3000
 interval=1
 ```
 
+- **port**: The port the exporter runs on
+- **host**: The host/ip the exporter runs on
+- **target**: The target mastodon instance
+- **interval**: The polling interval in seconds 
+
 ## Usage
 
 1. Download/Compile jar

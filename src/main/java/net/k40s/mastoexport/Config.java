@@ -16,7 +16,7 @@ public class Config {
 
     private int port = 9534;
     private String host = "localhost";
-    private String target = "https://comm.network";
+    private String target = "http://localhost:3000";
     private int interval = 5;
 
     private Config() {
