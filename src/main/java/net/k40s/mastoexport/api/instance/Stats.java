@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.io.Serializable;
 
 public class Stats implements Serializable  {
+
     @JsonProperty("domain_count")
     private Integer domainCount;
 

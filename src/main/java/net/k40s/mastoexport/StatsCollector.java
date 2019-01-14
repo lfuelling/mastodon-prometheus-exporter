@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 
-public class StatsCollector {
+class StatsCollector {
 
     private static Logger log = LoggerFactory.getLogger(StatsCollector.class);
 
@@ -36,7 +36,7 @@ public class StatsCollector {
             .labelNames("instance_uri")
             .create().register();
 
-    public static void setLatest(Instance instance, ArrayList<CustomEmoji> customEmojis) {
+    static void setLatest(Instance instance, ArrayList<CustomEmoji> customEmojis) {
         log.info("Updated '" + instance.getUri() + "'");
         domainCount.labels(instance.getUri()).set(instance.getStats().getDomainCount());
         statusCount.labels(instance.getUri()).set(instance.getStats().getStatusCount());

@@ -17,11 +17,10 @@ public class FetchJob implements Runnable {
 
     private static final Logger log = LoggerFactory.getLogger(FetchJob.class);
 
-    private boolean shouldStop = false;
-
     @Override
     public void run() {
-        while(!shouldStop) {
+        //noinspection InfiniteLoopStatement intentional
+        while(true) {
             try {
                 Instance instance = fetchInstanceStats();
                 ArrayList<CustomEmoji> customEmojis = fetchInstanceEmojis();
@@ -35,10 +34,6 @@ public class FetchJob implements Runnable {
                 log.info("Thread interrupted!", e);
             }
         }
-    }
-
-    public void setShouldStop(boolean shouldStop) {
-        this.shouldStop = shouldStop;
     }
 
     private Instance fetchInstanceStats() {

@@ -8,7 +8,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Properties;
 
-public class Config {
+class Config {
 
     private static final Logger log = LoggerFactory.getLogger(Config.class);
 
@@ -39,26 +39,26 @@ public class Config {
         }
     }
 
-    public static Config get() {
+    static Config get() {
         if (config == null) {
             config = new Config();
         }
         return config;
     }
 
-    public int getPort() {
+    int getPort() {
         return port;
     }
 
-    public String getHost() {
+    String getHost() {
         return host;
     }
 
-    public String getTarget() {
+    String getTarget() {
         return target;
     }
 
-    public int getInterval() {
+    int getInterval() {
         return interval;
     }
 }
