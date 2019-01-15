@@ -1,30 +1,30 @@
 jobs:
   include:
-    - stage: linux
-      language: java
-      sudo: true
-      addons:
-        apt:
-          packages:
-            - alien
-          update: true
-      git:
-        depth: 3
-      script:
-        - jdk_switcher use openjdk8
-        - mvn clean install -Dmaven.javadoc.skip=true -B -V
-        - sudo alien --scripts -r "target/mastodon-prometheus-exporter_1.0~SNAPSHOT_all.deb"
-        - mkdir target/deploy
-        - cp -v "target/$(ls target | grep jar-with-dependencies)" target/deploy
-        - cp -v "target/$(ls target | grep .deb)" target/deploy
-        - cp -v "$(ls | grep .rpm)" target/deploy
-      deploy:
-        provider: releases
-        api_key:
-          secure: "NcSMr0/j0AmFlkl1BdgVxiEj9deNtOFec8hQLKbmmRrd/xWMC6Nzk9bSM1nOgiZu1PBAP3ZI/iT8g3Zxjzcb9Th3qbIoutT3vhMFC1z+mDbUDDP2ZN0rakR3YXofhBDhnYJQdF9KjT80cQNytbnrtWUVzuwYzgUovxubXMzdBzIpo+7cIW9hS/2oS3d+e0UheBUgBMRcy1BXcFI5LYtkJdGNk9ZGqzigLhmhPgw+jyUx4i0IunMVxO5ErMQBtNZb5rugeJFwGPVLwh4lyFGhYAYoJ60uPkWgQiMV7rTLOUc+6/c1TlYJ3sc/9zyub7Vmo3ysrEGIor3g4K2vIk+9iTlMnDPu5Krko/vnTNjAYoIvPI/smGIzC8ut4hQpoD89h6KaR6qH1iqupbxTCHokkMpuCu5NVaRvZHws4f1ue0r3TB6vCN4iqeOY40ZQEhOuWRWfv21a3V31IY9yjMgN9SIqejM7kumijpjLxtsCjiKFqYd0S+h1qzuLPo0N+fUrgE8qnElCoCIBGDzNNPWZfx8Fods0G7cVHczeFNwBp6q4WtWukDf53Xn11VTvrNjdqyarVT8uv6/K97nM5/jVX+MC6KfFwewOcp3crnr04adZdhjPHF3KinDCtRL9AbuW8fTjJCq/TLDRPf1gXo1SZhoR97sbuTaIKQy2RTPsB28="
-        file_glob: true
-        file: target/deploy/*
-        skip_cleanup: true
-        on:
-          repo: lfuelling/mastodon-prometheus-exporter
-          tags: true
+  - stage: linux
+    language: java
+    sudo: true
+    addons:
+      apt:
+        packages:
+        - alien
+        update: true
+    git:
+      depth: 3
+    script:
+    - jdk_switcher use openjdk8
+    - mvn clean install -Dmaven.javadoc.skip=true -B -V
+    - sudo alien --scripts -r "target/mastodon-prometheus-exporter_1.0~SNAPSHOT_all.deb"
+    - mkdir target/deploy
+    - cp -v "target/$(ls target | grep jar-with-dependencies)" target/deploy
+    - cp -v "target/$(ls target | grep .deb)" target/deploy
+    - cp -v "$(ls | grep .rpm)" target/deploy
+    deploy:
+      provider: releases
+      api_key:
+        secure: oMdBFEtD7/UkyINevee+mF0ri1kP6C4fOPDZ5xQJDvQoofviTEFIKVl3//LOuqZbDQYQ7x72edCjK0bX9CBBjpgHS+KPYT11zCw9fPLkIo84nRUkRi+mnanxDzhILIy+ScEVYqUbHy6viUlybG4umj3TmTY8hD5nN48qrr4YETRukJYyuLivQGlAZKkGR/I2MjwX+zIcl1J2y2BQlOtT/fq2qHD4N6K0BMoEuapIZIMgEmgNOC2lY1ldjRC8jvHkbVk5UVxHuvSqSo9PDonyl7aHQVcnjaO3d9tiDuse1evzx4bemSaNKy8Xk5GpKSgHtUhsE+jtGEzzzwLy+/R/3BFc8ZrwZHliGqVVV4CDgk9+hEJ62L6/43zHAWhK5VUoWh0gWDIjqXqTIzyAGpYJb4hUOLYKWbxfhNLriRh5N6jj8ywIxPrTPLcrD3xzmnyoXhTvsaGHRfAzRAuOsZkJ2z3IwGhw94pKcg1d+YX6SH107bJnvWCo5vz/Jik6wQ5UWJKOXpwJbkTJlG5ZwWP6VbKHutdXp4m52FvhlZHYlhEK8cPv+x0O3f4aDFoPSVt1NxxPbGWcOT1dlNleGkj0ELhLVBp633JIkZ/eJr/r+BJawgyb/mz4gapx/6d5rMx2JUPjDrg6eFKCRnZWpbPWOlUTt13xEASGujRbkSM9zyU=
+      file_glob: true
+      file: target/deploy/*
+      skip_cleanup: true
+      on:
+        repo: lfuelling/mastodon-prometheus-exporter
+        tags: true
