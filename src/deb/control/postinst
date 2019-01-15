@@ -1,5 +1,9 @@
 #!/bin/sh -e
 
+# Make scripts executable
+chmod +x /usr/share/mastodon-exporter/start.sh
+chmod +x /usr/share/mastodon-exporter/stop.sh
+
 # Enable service
 systemctl enable mastodon-exporter.service
 
