@@ -1,0 +1,4 @@
+#!/bin/sh -e
+
+# Disable service
+systemctl disable mastodon-exporter.service

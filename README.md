@@ -26,3 +26,7 @@ interval=1
 2. Create config file
 3. Run jar
 4. Add target in prometheus
+
+### Caveats
+
+- Currently the debian service runs as root and opens a screen

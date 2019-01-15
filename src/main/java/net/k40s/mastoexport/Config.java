@@ -3,6 +3,7 @@ package net.k40s.mastoexport;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -11,6 +12,9 @@ import java.util.Properties;
 class Config {
 
     private static final Logger log = LoggerFactory.getLogger(Config.class);
+
+    private static final String CONFIG_NAME = "exporter.properties";
+    private static final String DEBIAN_CONFIG_PATH = "/etc/mastodon-exporter/" + CONFIG_NAME;
 
     private static Config config = null;
 
@@ -21,7 +25,7 @@ class Config {
 
     private Config() {
         boolean loadSuccess = false;
-        try (FileReader reader = new FileReader("deb/exporter.properties")) {
+        try (FileReader reader = new FileReader((new File(DEBIAN_CONFIG_PATH).exists()) ? DEBIAN_CONFIG_PATH : CONFIG_NAME)) {
             Properties p = new Properties();
             p.load(reader);
             loadSuccess = true;
