@@ -13,7 +13,7 @@ jobs:
       script:
         - jdk_switcher use openjdk8
         - mvn clean install -Dmaven.javadoc.skip=true -B -V
-        - sudo alien --scripts -r "target/mastodon-exporter_1.0~SNAPSHOT_all.deb"
+        - sudo alien --scripts -r "target/mastodon-prometheus-exporter_1.0~SNAPSHOT_all.deb"
         - mkdir target/deploy
         - cp -v "target/$(ls target | grep jar-with-dependencies)" target/deploy
         - cp -v "target/$(ls target | grep .deb)" target/deploy
