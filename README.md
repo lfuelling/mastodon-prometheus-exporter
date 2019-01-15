@@ -1,4 +1,4 @@
-# mastodon-prometheus-exporter
+# mastodon-prometheus-exporter [![Build Status](https://travis-ci.org/lfuelling/mastodon-prometheus-exporter.svg?branch=master)](https://travis-ci.org/lfuelling/mastodon-prometheus-exporter)
 
 Application that scrapes Mastodon instances when scraped by Prometheus.
 
