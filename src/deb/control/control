@@ -3,7 +3,7 @@ Version: [[version]]
 Section: misc
 Priority: optional
 Architecture: all
-Depends: openjdk-8-jre, systemd, screen
+Depends: openjdk-8-jre | openjdk-8-jre-headless | openjdk-8-jdk, systemd, screen
 PreDepends: dpkg (>= 1.15.7.2)
 Maintainer: Lukas Fülling <lukas@k40s.net>
 Description: Mastodon Prometheus Exporter
